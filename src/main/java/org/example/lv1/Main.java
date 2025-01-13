@@ -35,7 +35,7 @@ public class Main {
             // 사용자에게 입력을 받음
             functionFlag = readFunctionFlag();
             int menuNumber = Integer.parseInt(functionFlag);
-            // 입력한 숫자가 0이 아니라면 해당되는 메뉴를 출력
+            // 입력한 숫자가 0이 아니라면 해당되는 메뉴를 출력, 0이면 종료
             if(menuNumber != 0){
                 System.out.println("============================================================================");
                 System.out.println(menus[menuNumber-1]);
@@ -52,8 +52,10 @@ public class Main {
 
     }
 
+    // 사용자의 입력을 받아들이는 함수
     private static String readFunctionFlag(){
         String functionFlag = scanner.nextLine();
+        // 정규식의 표현과 맞지 않거나 메뉴에 없는 숫자를 입력하면 반복해서 입력하도록 지시함
         while(!Pattern.matches(NUMBER_REG, functionFlag) || Integer.parseInt(functionFlag) > menus.length - 1){
             System.out.print("잘못된 입력 형식입니다. 0-" + (menus.length - 1) + " 사이의 번호를 입력해주세요: ");
             functionFlag = scanner.nextLine();
