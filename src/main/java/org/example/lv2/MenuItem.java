@@ -2,10 +2,10 @@ package org.example.lv2;
 
 public class MenuItem {
     private String menuName;
-    private String menuPrice;
+    private double menuPrice;
     private String menuDescription;
 
-    public MenuItem(String menuName, String menuPrice, String menuDescription){
+    public MenuItem(String menuName, double menuPrice, String menuDescription){
         this.menuName = menuName;
         this.menuPrice = menuPrice;
         this.menuDescription = menuDescription;
@@ -15,7 +15,7 @@ public class MenuItem {
         return menuName;
     }
 
-    public String getMenuPrice() {
+    public double getMenuPrice() {
         return menuPrice;
     }
 
