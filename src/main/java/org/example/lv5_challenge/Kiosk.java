@@ -90,9 +90,17 @@ public class Kiosk {
     private String readFunctionFlag(){
         String functionFlag = scanner.nextLine();
         // 정규식의 표현과 맞지 않거나 메뉴에 없는 숫자를 입력하면 반복해서 입력하도록 지시함
-        while(!Pattern.matches(NUMBER_REG, functionFlag) || Integer.parseInt(functionFlag) > menuCategory.size()){
-            System.out.print("잘못된 입력 형식입니다. 0-" + (menuCategory.size()) + " 사이의 번호를 입력해주세요: ");
-            functionFlag = scanner.nextLine();
+        if(shoppingCart.hasCartItem()){
+            while(!Pattern.matches(NUMBER_REG, functionFlag) || Integer.parseInt(functionFlag) > menuCategory.size() + 2){
+                System.out.print("잘못된 입력 형식입니다. 0-" + (menuCategory.size() + 2) + " 사이의 번호를 입력해주세요: ");
+                functionFlag = scanner.nextLine();
+            }
+        }
+        else{
+            while(!Pattern.matches(NUMBER_REG, functionFlag) || Integer.parseInt(functionFlag) > menuCategory.size()){
+                System.out.print("잘못된 입력 형식입니다. 0-" + (menuCategory.size()) + " 사이의 번호를 입력해주세요: ");
+                functionFlag = scanner.nextLine();
+            }
         }
         return functionFlag;
     }
