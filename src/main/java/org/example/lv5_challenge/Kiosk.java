@@ -1,5 +1,6 @@
 package org.example.lv5_challenge;
 
+import org.example.lv5_challenge.cart.CartItem;
 import org.example.lv5_challenge.cart.ShoppingCart;
 
 import java.util.List;
@@ -58,13 +59,22 @@ public class Kiosk {
                 continue;
             }
 
+            // 선택한 메뉴 출력
             MenuItem selectedMenu = selectedCategory.getMenus().get(menuNumber - 1);
             System.out.println("============================================================================");
             System.out.println("선택한 메뉴: " + selectedMenu);
             System.out.println("============================================================================");
             System.out.println();
 
+            // 장바구니 추가 로직 시작
             System.out.println("\"" + selectedMenu + "\" \n위 메뉴를 장바구니에 추가하시겠습니까?\n1. 확인 \t2.취소");
+            int shoppingCartAddOption =  readShoppingCartAddOption();
+            // 1번을 입력하면 장바구니에 상품을 담는다.
+            if(shoppingCartAddOption == 1){
+                shoppingCart.addCartItem(new CartItem(selectedMenu));
+            }
+            System.out.println();
+
         }
     }
 
@@ -87,5 +97,15 @@ public class Kiosk {
             menuNumberString = scanner.nextLine();
         }
         return Integer.parseInt(menuNumberString);
+    }
+
+    private int readShoppingCartAddOption(){
+        String shoppingCartAddOption = scanner.nextLine();
+        // 정규식의 표현과 맞지 않거나 메뉴에 없는 숫자를 입력하면 반복해서 입력하도록 지시함
+        while(!Pattern.matches(NUMBER_REG, shoppingCartAddOption) || Integer.parseInt(shoppingCartAddOption) > 2 || Integer.parseInt(shoppingCartAddOption) <= 0){
+            System.out.print("잘못된 입력 형식입니다. 1번 혹은 2번을 입력해 주세요: ");
+            shoppingCartAddOption = scanner.nextLine();
+        }
+        return Integer.parseInt(shoppingCartAddOption);
     }
 }
