@@ -31,4 +31,10 @@ public class ShoppingCart {
         }
         return totalPrice;
     }
+
+    public void showCartItems(){
+        for(CartItem cartItem : cartItems){
+            System.out.println(cartItem);
+        }
+    }
 }

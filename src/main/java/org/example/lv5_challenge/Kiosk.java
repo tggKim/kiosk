@@ -51,6 +51,23 @@ public class Kiosk {
                 break;
             }
 
+            // 장바구니 주문하거나 주문 취소하는 로직
+            if(categoryNumber == menuCategory.size() + 1){
+                System.out.println("\n아래와 같이 주문 하시겠습니까?\n\n[ Orders ]");
+                shoppingCart.showCartItems();
+                System.out.println("\n[ Total ]");
+                System.out.println("W " + shoppingCart.getTotalPrice());
+                System.out.println();
+                continue;
+            }
+            else if(categoryNumber == menuCategory.size() + 2){
+                System.out.println("============================================================================");
+                System.out.println("장바구니의 주문들을 취소했습니다.");
+                System.out.println("============================================================================");
+                System.out.println();
+                continue;
+            }
+
             // 카테고리에 해당되는 Menu 객체를 불러옴
             selectedCategory = menuCategory.get(categoryNumber - 1);
 
