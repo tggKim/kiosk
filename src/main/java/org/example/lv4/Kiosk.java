@@ -1,8 +1,7 @@
-package org.example.lv3;
+package org.example.lv4;
 
-import org.example.lv3.MenuItem;
+import org.example.lv4.MenuItem;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;

@@ -1,11 +1,10 @@
-package org.example.lv3;
+package org.example.lv4;
 
-import org.example.lv3.MenuItem;
+import org.example.lv4.MenuItem;
+import org.example.lv4.Kiosk;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class Main {
 
@@ -20,7 +19,7 @@ public class Main {
         menus.add(new MenuItem("soop", 7.4, "졸라 맛있는 수프"));
 
         // Kiosk 객쳋 생성
-        Kiosk kiosk = new Kiosk(menus);
+        org.example.lv3.Kiosk kiosk = new Kiosk(menus);
 
         // Kiosk 시작
         kiosk.start();
