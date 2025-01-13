@@ -4,6 +4,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShoppingCart {
+
     private List<CartItem> cartItems = new ArrayList<>();
 
+    // cartItem이 존재하면 quantity를 1증가시키고 리스트에 없으면 추가한다.
+    public void addCartItem(CartItem cartItem){
+        if(cartItems.contains(cartItem)){
+            CartItem findCartItem = cartItems.get(cartItems.indexOf(cartItem));
+            findCartItem.incrementQuantity();
+        }
+        else{
+            cartItems.add(cartItem);
+        }
+    }
+
+    // 장바구니에 담긴 상품이 있는지 판단하는 메서드
+    public boolean hasCartItem(){
+        return cartItems.isEmpty();
+    }
+
+    // 장바구니에 담긴 총 금액을 리턴하는 메서드
+    public double getTotalPrice(){
+        double totalPrice = 0;
+        for(CartItem cartItem : cartItems){
+            totalPrice += (cartItem.getQuantity() * cartItem.getMenuPrice());
+        }
+        return totalPrice;
+    }
 }

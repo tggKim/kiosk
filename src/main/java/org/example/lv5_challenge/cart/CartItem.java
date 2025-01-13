@@ -14,7 +14,7 @@ public class CartItem {
         this.menuName = menuItem.getMenuName();
         this.menuPrice = menuItem.getMenuPrice();
         this.menuDescription = menuItem.getMenuDescription();
-        quantity = 0;
+        quantity = 1;
     }
 
     public String getMenuName() {
@@ -33,9 +33,13 @@ public class CartItem {
         return quantity;
     }
 
+    public void incrementQuantity(){
+        quantity++;
+    }
+
     @Override
     public String toString() {
-        return String.format("%-15s|",menuName)+ " W " + menuPrice + " | " + menuDescription;
+        return String.format("%-15s|",menuName)+ " W " + menuPrice + " | " + menuDescription + " 수량: " + quantity;
     }
 
     // CartItem이 저장된 List에서 해당 CartItem을 contains()와 indexOf()로 찾을 수 있도록 equals() 재정의함, menuName을 기준으로 구분하도록 했다.
