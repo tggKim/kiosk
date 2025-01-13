@@ -22,4 +22,9 @@ public class MenuItem {
     public String getMenuDescription() {
         return menuDescription;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%-15s|",menuName)+ " W " + menuPrice + " | " + menuDescription;
+    }
 }
