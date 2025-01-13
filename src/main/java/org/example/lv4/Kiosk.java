@@ -29,7 +29,19 @@ public class Kiosk {
             for(int i = 0; i < menuCategory.size(); i++){
                 System.out.println((i + 1) + ". " + menuCategory.get(i).getCategory());
             }
-            System.out.println("exit");
+            System.out.println("0. exit");
+
+            // 사용자에게 입력을 받음
+            functionFlag = readFunctionFlag();
+            int menuNumber = Integer.parseInt(functionFlag);
+            // 입력한 숫자가 0이 아니라면 해당되는 메뉴를 출력, 0이면 종료
+            if(menuNumber == 0){
+                System.out.println("============================================================================");
+                System.out.println("프로그램을 종료합니다.");
+                System.out.println("============================================================================");
+                break;
+            }
+
 
 //            // 카테고리별 메뉴 출력
 //            System.out.println("[ MAIN MENU ]");
@@ -41,20 +53,6 @@ public class Kiosk {
 //            System.out.println("exit");
 //            //System.out.println(String.format("0. %-15s| 종료","exit"));
 
-            // 사용자에게 입력을 받음
-            functionFlag = readFunctionFlag();
-            int menuNumber = Integer.parseInt(functionFlag);
-            // 입력한 숫자가 0이 아니라면 해당되는 메뉴를 출력, 0이면 종료
-            if(menuNumber != 0){
-                System.out.println("============================================================================");
-                System.out.println(menuCategory.get(menuNumber-1));
-                System.out.println("============================================================================");
-            }
-            else{
-                System.out.println("============================================================================");
-                System.out.println("프로그램을 종료합니다.");
-                System.out.println("============================================================================");
-            }
             // 한 칸 띄기
             System.out.println();
         }
