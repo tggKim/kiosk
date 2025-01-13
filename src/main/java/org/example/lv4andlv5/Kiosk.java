@@ -8,7 +8,7 @@ public class Kiosk {
     private final String NUMBER_REG = "^[0-9]+$";
     private Scanner scanner = new Scanner(System.in);
     private List<Menu> menuCategory;
-    private Menu selelectedMenu;
+    private Menu selectedCategory;
 
     public Kiosk(List<Menu> menuCategory){
         this.menuCategory = menuCategory;
@@ -40,11 +40,11 @@ public class Kiosk {
             }
 
             // 카테고리에 해당되는 Menu 객체를 불러옴
-            selelectedMenu = menuCategory.get(categoryNumber - 1);
+            selectedCategory = menuCategory.get(categoryNumber - 1);
 
             // 카테고리별 메뉴 출력
-            System.out.println("\n[ " + selelectedMenu.getCategory() + " MENU ]");
-            selelectedMenu.showMenu();
+            System.out.println("\n[ " + selectedCategory.getCategory() + " MENU ]");
+            selectedCategory.showMenu();
             System.out.println("0. 뒤로가기");
 
             // 카테고리별 메뉴 선택
@@ -56,7 +56,7 @@ public class Kiosk {
             }
 
             System.out.println("============================================================================");
-            System.out.println(selelectedMenu.getMenus().get(menuNumber - 1));
+            System.out.println("선택한 메뉴: " + selectedCategory.getMenus().get(menuNumber - 1));
             System.out.println("============================================================================");
 
             // 한 칸 띄기
@@ -78,8 +78,8 @@ public class Kiosk {
     private int readMenuNumber(){
         String menuNumberString = scanner.nextLine();
         // 정규식의 표현과 맞지 않거나 메뉴에 없는 숫자를 입력하면 반복해서 입력하도록 지시함
-        while(!Pattern.matches(NUMBER_REG, menuNumberString) || Integer.parseInt(menuNumberString) > selelectedMenu.getMenus().size()){
-            System.out.print("잘못된 입력 형식입니다. 0-" + (selelectedMenu.getMenus().size()) + " 사이의 번호를 입력해주세요: ");
+        while(!Pattern.matches(NUMBER_REG, menuNumberString) || Integer.parseInt(menuNumberString) > selectedCategory.getMenus().size()){
+            System.out.print("잘못된 입력 형식입니다. 0-" + (selectedCategory.getMenus().size()) + " 사이의 번호를 입력해주세요: ");
             menuNumberString = scanner.nextLine();
         }
         return Integer.parseInt(menuNumberString);
