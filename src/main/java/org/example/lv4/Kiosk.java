@@ -9,10 +9,10 @@ import java.util.regex.Pattern;
 public class Kiosk {
     private final String NUMBER_REG = "^[0-9]+$";
     private Scanner scanner = new Scanner(System.in);
-    private List<MenuItem> menus;
+    private List<Menu> menuCategory;
 
-    public Kiosk(List<MenuItem> menus){
-        this.menus = menus;
+    public Kiosk(List<Menu> menuCategory){
+        this.menuCategory = menuCategory;
     }
 
     public void start(){
@@ -22,13 +22,24 @@ public class Kiosk {
         // 반복해서 키오스크 메뉴 출력하는 반복문
         while(!functionFlag.equals("0")){
 
-            System.out.println("[ SHAKESHACK MENU ]");
+            // 메인 카테고리 출력
+            System.out.println("[ MAIN MENU ]");
 
-            // 메뉴를 출력
-            for(int i = 0; i < menus.size(); i++){
-                System.out.println((i + 1) + ". " + menus.get(i));
+            // 메인 카테고리 출력
+            for(int i = 0; i < menuCategory.size(); i++){
+                System.out.println((i + 1) + ". " + menuCategory.get(i).getCategory());
             }
-            System.out.println(String.format("0. %-15s| 종료","exit"));
+            System.out.println("exit");
+
+//            // 카테고리별 메뉴 출력
+//            System.out.println("[ MAIN MENU ]");
+//
+//            // 카테고리별 메뉴 출력
+//            for(int i = 0; i < menus.size(); i++){
+//                System.out.println((i + 1) + ". " + menus.get(i).getCategory());
+//            }
+//            System.out.println("exit");
+//            //System.out.println(String.format("0. %-15s| 종료","exit"));
 
             // 사용자에게 입력을 받음
             functionFlag = readFunctionFlag();
@@ -36,7 +47,7 @@ public class Kiosk {
             // 입력한 숫자가 0이 아니라면 해당되는 메뉴를 출력, 0이면 종료
             if(menuNumber != 0){
                 System.out.println("============================================================================");
-                System.out.println(menus.get(menuNumber-1));
+                System.out.println(menuCategory.get(menuNumber-1));
                 System.out.println("============================================================================");
             }
             else{
@@ -53,8 +64,8 @@ public class Kiosk {
     private String readFunctionFlag(){
         String functionFlag = scanner.nextLine();
         // 정규식의 표현과 맞지 않거나 메뉴에 없는 숫자를 입력하면 반복해서 입력하도록 지시함
-        while(!Pattern.matches(NUMBER_REG, functionFlag) || Integer.parseInt(functionFlag) > menus.size()){
-            System.out.print("잘못된 입력 형식입니다. 0-" + (menus.size()) + " 사이의 번호를 입력해주세요: ");
+        while(!Pattern.matches(NUMBER_REG, functionFlag) || Integer.parseInt(functionFlag) > menuCategory.size()){
+            System.out.print("잘못된 입력 형식입니다. 0-" + (menuCategory.size()) + " 사이의 번호를 입력해주세요: ");
             functionFlag = scanner.nextLine();
         }
         return functionFlag;

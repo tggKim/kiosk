@@ -24,7 +24,7 @@ public class Menu {
         return menus;
     }
 
-    public void setMenus(List<MenuItem> menus) {
-        this.menus = menus;
+    public String getCategory() {
+        return category;
     }
 }
