@@ -1,5 +1,7 @@
 package org.example.lv5_challenge;
 
+import org.example.lv5_challenge.cart.ShoppingCart;
+
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -9,6 +11,7 @@ public class Kiosk {
     private Scanner scanner = new Scanner(System.in);
     private List<Menu> menuCategory;
     private Menu selectedCategory;
+    private ShoppingCart shoppingCart = new ShoppingCart();
 
     public Kiosk(List<Menu> menuCategory){
         this.menuCategory = menuCategory;
@@ -55,12 +58,13 @@ public class Kiosk {
                 continue;
             }
 
+            MenuItem selectedMenu = selectedCategory.getMenus().get(menuNumber - 1);
             System.out.println("============================================================================");
-            System.out.println("선택한 메뉴: " + selectedCategory.getMenus().get(menuNumber - 1));
+            System.out.println("선택한 메뉴: " + selectedMenu);
             System.out.println("============================================================================");
-
-            // 한 칸 띄기
             System.out.println();
+
+            System.out.println("\"" + selectedMenu + "\" \n위 메뉴를 장바구니에 추가하시겠습니까?\n1. 확인 \t2.취소");
         }
     }
 
