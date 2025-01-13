@@ -32,6 +32,14 @@ public class Kiosk {
             }
             System.out.println("0. exit");
 
+            // 만약 장바구니에 물건이 있다면 출력되는 부분
+            if(shoppingCart.hasCartItem()){
+                System.out.println("\n[ ORDER MENU ]");
+                // 앞에 붙는 번호가 menuCategory 크기에 따라서 변하도록 작성
+                System.out.println((menuCategory.size() + 1) + String.format(".%-15s|"," Orders") + " 장바구니를 확인 후 주문합니다.");
+                System.out.println((menuCategory.size() + 2) + String.format(".%-15s|"," Cancel") + " 진행중인 주문을 취소합니다.");
+            }
+
             // 사용자에게 입력을 받음
             functionFlag = readFunctionFlag();
             int categoryNumber = Integer.parseInt(functionFlag);
@@ -68,7 +76,7 @@ public class Kiosk {
 
             // 장바구니 추가 로직 시작
             System.out.println("\"" + selectedMenu + "\" \n위 메뉴를 장바구니에 추가하시겠습니까?\n1. 확인 \t2.취소");
-            int shoppingCartAddOption =  readShoppingCartAddOption();
+            int shoppingCartAddOption =  readOneOrTwo();
             // 1번을 입력하면 장바구니에 상품을 담는다.
             if(shoppingCartAddOption == 1){
                 shoppingCart.addCartItem(new CartItem(selectedMenu));
@@ -99,13 +107,13 @@ public class Kiosk {
         return Integer.parseInt(menuNumberString);
     }
 
-    private int readShoppingCartAddOption(){
-        String shoppingCartAddOption = scanner.nextLine();
+    private int readOneOrTwo(){
+        String oneOrTwo = scanner.nextLine();
         // 정규식의 표현과 맞지 않거나 메뉴에 없는 숫자를 입력하면 반복해서 입력하도록 지시함
-        while(!Pattern.matches(NUMBER_REG, shoppingCartAddOption) || Integer.parseInt(shoppingCartAddOption) > 2 || Integer.parseInt(shoppingCartAddOption) <= 0){
+        while(!Pattern.matches(NUMBER_REG, oneOrTwo) || Integer.parseInt(oneOrTwo) > 2 || Integer.parseInt(oneOrTwo) <= 0){
             System.out.print("잘못된 입력 형식입니다. 1번 혹은 2번을 입력해 주세요: ");
-            shoppingCartAddOption = scanner.nextLine();
+            oneOrTwo = scanner.nextLine();
         }
-        return Integer.parseInt(shoppingCartAddOption);
+        return Integer.parseInt(oneOrTwo);
     }
 }

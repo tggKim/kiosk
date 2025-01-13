@@ -20,7 +20,7 @@ public class ShoppingCart {
 
     // 장바구니에 담긴 상품이 있는지 판단하는 메서드
     public boolean hasCartItem(){
-        return cartItems.isEmpty();
+        return !cartItems.isEmpty();
     }
 
     // 장바구니에 담긴 총 금액을 리턴하는 메서드
