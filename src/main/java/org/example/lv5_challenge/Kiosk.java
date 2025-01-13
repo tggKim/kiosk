@@ -61,6 +61,7 @@ public class Kiosk {
                 continue;
             }
             else if(categoryNumber == menuCategory.size() + 2){
+                shoppingCart.clearCartItems();
                 System.out.println("============================================================================");
                 System.out.println("장바구니의 주문들을 취소했습니다.");
                 System.out.println("============================================================================");

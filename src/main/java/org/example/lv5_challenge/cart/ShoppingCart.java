@@ -37,4 +37,8 @@ public class ShoppingCart {
             System.out.println(cartItem);
         }
     }
+
+    public void clearCartItems(){
+        cartItems.clear();
+    }
 }
