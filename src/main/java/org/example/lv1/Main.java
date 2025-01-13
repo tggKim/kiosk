@@ -31,7 +31,22 @@ public class Main {
                 System.out.println((i + 1) % menus.length + ". " + menus[i]);
             }
 
+            // 사용자에게 입력을 받음
             functionFlag = readFunctionFlag();
+            int menuNumber = Integer.parseInt(functionFlag);
+            // 입력한 숫자가 0이 아니라면 해당되는 메뉴를 출력
+            if(menuNumber != 0){
+                System.out.println("============================================================================");
+                System.out.println(menus[menuNumber]);
+                System.out.println("============================================================================");
+            }
+            else{
+                System.out.println("============================================================================");
+                System.out.println("프로그램을 종료합니다.");
+                System.out.println("============================================================================");
+            }
+            // 한 칸 띄기
+            System.out.println();
         }
 
     }
