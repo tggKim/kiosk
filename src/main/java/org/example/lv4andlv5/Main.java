@@ -1,7 +1,4 @@
-package org.example.lv4;
-
-import org.example.lv4.MenuItem;
-import org.example.lv4.Kiosk;
+package org.example.lv4andlv5;
 
 import java.util.ArrayList;
 import java.util.List;
