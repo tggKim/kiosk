@@ -20,11 +20,18 @@ public class Main {
         menus2.add(new MenuItem("BerryBurst", 4.3, "베리를 갈아서 만든 슬러시"));
         menus2.add(new MenuItem("MintyFresh", 2.5, "민트맛 음료수"));
 
+        List<MenuItem> menus3 = new ArrayList<>();
+
+        menus3.add(new MenuItem("Chocolate Bliss", 5.2, "진한 초콜릿이 입안에서 사르르 녹는 부드러운 디저트"));
+        menus3.add(new MenuItem("Lemon Tart", 5.3, "상큼한 레몬 크림과 바삭한 타르트의 완벽한 조화"));
+        menus3.add(new MenuItem("Vanilla Dream", 5.5, "부드럽고 풍부한 바닐라 향이 가득한 디저트"));
+
         // 카터고리 리스트
         List<Menu> menuCategory = new ArrayList<>();
 
         menuCategory.add(new Menu("Burgers", menus1));
         menuCategory.add(new Menu("Drinks", menus2));
+        menuCategory.add(new Menu("Desserts", menus3));
 
         // Kiosk 객체 생성
         Kiosk kiosk = new Kiosk(menuCategory);

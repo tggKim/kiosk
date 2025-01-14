@@ -57,7 +57,8 @@ public class Kiosk {
                 shoppingCart.showCartItems();
                 System.out.println("\n[ Total ]");
                 System.out.println("W " + shoppingCart.getTotalPrice());
-                System.out.println();
+                System.out.println("\n1. 주문\t2. 메뉴판");
+
                 continue;
             }
             else if(categoryNumber == menuCategory.size() + 2){

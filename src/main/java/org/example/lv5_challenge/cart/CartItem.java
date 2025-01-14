@@ -39,7 +39,7 @@ public class CartItem {
 
     @Override
     public String toString() {
-        return String.format("%-15s|",menuName)+ " W " + menuPrice + " | " + menuDescription + " 수량: " + quantity;
+        return String.format("%-15s|",menuName)+ " W " + menuPrice + " | " + menuDescription + " | 수량: " + quantity;
     }
 
     // CartItem이 저장된 List에서 해당 CartItem을 contains()와 indexOf()로 찾을 수 있도록 equals() 재정의함, menuName을 기준으로 구분하도록 했다.
