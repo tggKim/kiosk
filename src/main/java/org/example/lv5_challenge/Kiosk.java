@@ -2,6 +2,7 @@ package org.example.lv5_challenge;
 
 import org.example.lv5_challenge.cart.CartItem;
 import org.example.lv5_challenge.cart.ShoppingCart;
+import org.example.lv5_challenge.discount.Discount;
 
 import java.util.List;
 import java.util.Scanner;
@@ -61,6 +62,7 @@ public class Kiosk {
 
                 int orderOption = readOneOrTwo();
                 if(orderOption == 1){
+
                     System.out.println("\n주문이 완료되었습니다. 금액은 W " + shoppingCart.getTotalPrice() + " 입니다.");
                     shoppingCart.clearCartItems();
                 }

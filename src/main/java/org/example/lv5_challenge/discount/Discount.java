@@ -16,18 +16,30 @@ public enum Discount {
         this.discountRate = discountRate;
     }
 
-    public void showDiscount(){
-        Discount[] discounts = values();
-        for(int i = 0; i < discounts.length; i++){
-            System.out.println(sequenceNumber + ". " + description + " : " + discountRate + "%");
+    public int getSequenceNumber() {
+        return sequenceNumber;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getDiscountRate() {
+        return discountRate;
+    }
+
+    public static void showDiscount(){
+        for(Discount discount : values()){
+            System.out.println(discount.getSequenceNumber() + ". " + discount.getDescription() + " : " + discount.getDiscountRate() + "%");
         }
     }
 
-    public double calculateDiscount(int sequenceNumber, double money){
+    public static double calculateDiscount(int sequenceNumber, double money){
         double calculatedMoney = 0;
         for(Discount discount : values()){
-            if(discount.sequenceNumber == sequenceNumber){
-                calculatedMoney = money * ((double)(100-discount.discountRate)/100);
+            if(discount.getSequenceNumber() == sequenceNumber){
+                calculatedMoney = money * ((double)(100-discount.getDiscountRate())/100);
+                break;
             }
         }
         return calculatedMoney;
