@@ -105,6 +105,7 @@ public class Kiosk {
             // 1번을 입력하면 장바구니에 상품을 담는다.
             if(shoppingCartAddOption == 1){
                 shoppingCart.addCartItem(new CartItem(selectedMenu));
+                System.out.println("\n" + selectedMenu.getMenuName() + " 이 장바구니에 추가되었습니다.");
             }
             System.out.println();
 
