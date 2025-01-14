@@ -62,8 +62,15 @@ public class Kiosk {
 
                 int orderOption = readOneOrTwo();
                 if(orderOption == 1){
+                    // 할인 정보 출력
+                    System.out.println("\n할인 정보를 입력해주세요.");
+                    Discount.showDiscount();
 
-                    System.out.println("\n주문이 완료되었습니다. 금액은 W " + shoppingCart.getTotalPrice() + " 입니다.");
+                    // 할인 정보 입력 받음
+                    int discountOption = readDiscountOption();
+
+                    //주문 완료 금액 할인 적용해서 출력
+                    System.out.println("\n주문이 완료되었습니다. 금액은 W " + Discount.calculateDiscount(discountOption, shoppingCart.getTotalPrice()) + " 입니다.");
                     shoppingCart.clearCartItems();
                 }
                 System.out.println();
@@ -135,7 +142,6 @@ public class Kiosk {
 
     private int readMenuNumber(){
         String menuNumberString = scanner.nextLine();
-        // 정규식의 표현과 맞지 않거나 메뉴에 없는 숫자를 입력하면 반복해서 입력하도록 지시함
         while(!Pattern.matches(NUMBER_REG, menuNumberString) || Integer.parseInt(menuNumberString) > selectedCategory.getMenus().size()){
             System.out.print("잘못된 입력 형식입니다. 0-" + (selectedCategory.getMenus().size()) + " 사이의 번호를 입력해주세요: ");
             menuNumberString = scanner.nextLine();
@@ -145,11 +151,19 @@ public class Kiosk {
 
     private int readOneOrTwo(){
         String oneOrTwo = scanner.nextLine();
-        // 정규식의 표현과 맞지 않거나 메뉴에 없는 숫자를 입력하면 반복해서 입력하도록 지시함
         while(!Pattern.matches(NUMBER_REG, oneOrTwo) || Integer.parseInt(oneOrTwo) > 2 || Integer.parseInt(oneOrTwo) <= 0){
             System.out.print("잘못된 입력 형식입니다. 1번 혹은 2번을 입력해 주세요: ");
             oneOrTwo = scanner.nextLine();
         }
         return Integer.parseInt(oneOrTwo);
+    }
+
+    private int readDiscountOption(){
+        String discountOption = scanner.nextLine();
+        while(!Pattern.matches(NUMBER_REG, discountOption) || Integer.parseInt(discountOption) > Discount.values().length || Integer.parseInt(discountOption) <= 0){
+            System.out.print("잘못된 입력 형식입니다. 1-" + Discount.values().length + " 사이의 번호를 입력해주세요: ");
+            discountOption = scanner.nextLine();
+        }
+        return Integer.parseInt(discountOption);
     }
 }
