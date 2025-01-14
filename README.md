@@ -69,3 +69,39 @@
   - 선택한 메뉴를 출력
 
   - 카테고리 선택에서 0번을 통해서 키오스크를 종료하거나 메뉴선택에서 0번을 통해서 카테고리 선택 페이지로 돌아갈 수 있다.
+
+# 도전 과제 Lv1
+
+### 기능
+
+  - 장바구니 클래스인 ShoppingCart와 장바구니에 담길 상품인 CartItem 클래스를 만들어서 장바구니 기능을 구현함
+
+  - 선택한 상품을 장바구니에 담을 수 있고, 장바구니에 담긴 물건을 주문하거나 취소할 수 있다.
+
+### CartItem 클래스
+
+  - 메뉴에 대한 정보 그리고 수량을 가지는 클래스
+
+  - 생성자를 통해서 MenuItem을 인자로 받아서 상품의 정보를 저장한다.
+
+  - toString()을 재정의해서 출력 형식을 정의했다.
+
+  - equals()를 재정의 해서 List에 담겨있을때 menuName을 기준으로 contains()와 indexOf()의 값이 나오도록 만들었다.
+
+### ShoppingCart 클래스
+
+  - CartItem을 List로 가진다.
+
+    - addCartItem() 메서드로 List에 CartItem이 있으면 수량을 증가시키고 없다면 추가한다.
+   
+    - showCartItem() 메서드로 장바구니에 담긴 모든 CartItem들을 출력한다.
+   
+    - getTotalPrice()로 장바구니의 총 가격을 리턴한다.
+   
+    - hasCartItem()으로 장바구니에 담긴 CartItem이 있는지 확인한다.
+
+    - clearCartItems()로 장바구니를 비운다.
+   
+### Kiosk 클래스
+
+  - 
