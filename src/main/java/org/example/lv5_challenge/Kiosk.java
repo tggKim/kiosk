@@ -77,10 +77,22 @@ public class Kiosk {
                 continue;
             }
             else if(categoryNumber == menuCategory.size() + 2){
-                shoppingCart.clearCartItems();
-                System.out.println("============================================================================");
-                System.out.println("장바구니의 주문들을 취소했습니다.");
-                System.out.println("============================================================================");
+                System.out.println("\n장바구니에서 삭제할 상품의 이름을 입력해 주세요.");
+                String menuName = scanner.nextLine();
+                if(shoppingCart.removeCartItemByName(menuName)){
+                    System.out.println("============================================================================");
+                    System.out.println("해당 상품의 주문을 취소했습니다.");
+                    System.out.println("============================================================================");
+                }
+                else{
+                    System.out.println("============================================================================");
+                    System.out.println("해당되는 상품이 장바구니에 없습니다.");
+                    System.out.println("============================================================================");
+                }
+//                shoppingCart.clearCartItems();
+//                System.out.println("============================================================================");
+//                System.out.println("장바구니의 주문들을 취소했습니다.");
+//                System.out.println("============================================================================");
                 System.out.println();
                 continue;
             }
