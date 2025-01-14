@@ -117,3 +117,31 @@
       - 예시로 카테고리가 n개면 n+1번, n+2번이 장바구니 확인과 주문 취소 메뉴이므로 이에 해당하는 숫자를 입력받을 수 있도록 수정했다.
 
   - "장바구니 확인 후 주문합니다" 선택 후 장바구니 목록과 총 금액을 출력하도록 하고 주문할 수 있도록 수정했다.
+
+# 도전 과제 Lv2
+
+### 기능
+
+  - Discount Enum 클래스를 만들어서 할인을 관리했다.
+
+  - 스트림을 활용해서 메뉴를 출력하고 특정 메뉴를 장바구니에서 제거하도록 했다.
+
+### Discount Enum 클래스
+
+  - 할인에 대한 Enum 클래스
+
+  - sequenceNumber, description, discountRate 를 필드로 가진다.
+
+  - showDiscount() 메서드로 할인에 대한 모든 정보를 출력한다.
+
+  - calculateDiscount(int sequenceNumber, double money) 메서드를 통해서 순번에 해당하는 Enum을 찾아서 해당 Enum의 할인율을 적용한 값을 리턴한다.
+
+### Kiosk 클래스
+
+  - "주문" 을 선택하면 할인 정보를 선택하는 인터페이스 출력하고 이를 적용하는 로직을 작성했다.
+
+  - readDiscountOption()을 통해서 현재 Discount 상수의 sequenceNumber 해당하는 숫자만 입력받는다.
+
+### Menu 클래스
+
+  - 스트림을 활용해서 메뉴들을 출력하도록 수정했다.
