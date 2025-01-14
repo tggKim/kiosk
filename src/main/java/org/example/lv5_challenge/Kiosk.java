@@ -59,6 +59,12 @@ public class Kiosk {
                 System.out.println("W " + shoppingCart.getTotalPrice());
                 System.out.println("\n1. 주문\t2. 메뉴판");
 
+                int orderOption = readOneOrTwo();
+                if(orderOption == 1){
+                    System.out.println("\n주문이 완료되었습니다. 금액은 W " + shoppingCart.getTotalPrice() + " 입니다.");
+                    shoppingCart.clearCartItems();
+                }
+                System.out.println();
                 continue;
             }
             else if(categoryNumber == menuCategory.size() + 2){
